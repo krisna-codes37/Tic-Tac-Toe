@@ -354,12 +354,12 @@ size: { value: { min: 1, max: 4 } },
 move: { enable: true, speed: 1.2, outModes: { default: "bounce" } }
 },
 interactivity: {
-detectsOn: "canvas",
+detectsOn: "window",
 events: {
-onHover: { enable: true, mode: "repulse" },
+onHover: { enable: true, mode: "grab" },
 onClick: { enable: true, mode: "push" }
 },
-modes: { repulse: { distance: 110, duration: 0.4 }, push: { quantity: 3 } }
+modes: { grab: { distance: 150, links: { opacity: 0.75 } }, push: { quantity: 3 } }
 },
 detectRetina: true
 });
@@ -372,7 +372,5 @@ const x = (ev.clientX / window.innerWidth) * 100;
 const y = (ev.clientY / window.innerHeight) * 100;
 document.documentElement.style.setProperty('--mouse-x', `${x}%`);
 document.documentElement.style.setProperty('--mouse-y', `${y}%`);
-const cont = document.querySelector('.container');
-if (cont) cont.style.transform = `translate(${(x - 50) / 45}%, ${(y - 50) / 45}%)`;
 });
 });
