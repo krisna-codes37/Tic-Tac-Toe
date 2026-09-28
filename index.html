@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tic Tac Toe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+</head>
+<body>
+<div id="tsparticles"></div>
+<div class="container">
+  <div class="left-panel">
+    <div class="brand">
+      <h1>TIC tac toe</h1>
+      <p class="developer">krishna mandal</p>
+    </div>
+    <div class="card status-panel">
+      <div id="status">Press Start</div>
+    </div>
+    <div class="card mini-info">
+      <h2>Game Ready</h2>
+      <p>Set player names, choose game mode, and pick the tournament length in the center panel.</p>
+    </div>
+  </div>
+  <div class="middle-panel">
+    <div class="card setup-card">
+      <h2>Match Setup</h2>
+      <input type="text" id="playerX" placeholder="Player X Name">
+      <input type="text" id="playerO" placeholder="Player O Name">
+      <select id="gameMode">
+        <option value="human">Human vs Human</option>
+        <option value="ai">Human vs AI</option>
+      </select>
+      <select id="difficulty">
+        <option value="easy">Easy AI</option>
+        <option value="hard">Hard AI</option>
+        <option value="impossible">Impossible AI</option>
+      </select>
+      <select id="tournament">
+        <option value="3">Best Of 3</option>
+        <option value="5">Best Of 5</option>
+        <option value="7">Best Of 7</option>
+      </select>
+      <button id="startGame" class="primary-btn">Start Match</button>
+    </div>
+  </div>
+  <div class="right-panel">
+    <div class="card board-card">
+      <div class="board" id="board">
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+      </div>
+    </div>
+    <div class="card scoreboard">
+      <div class="score-card">
+        <h3 id="nameX">Player X</h3>
+        <span id="scoreX">0</span>
+        <p class="role">Player X Wins</p>
+      </div>
+      <div class="score-card">
+        <h3>Round</h3>
+        <span id="roundNo">1</span>
+        <p class="role">Current Match</p>
+      </div>
+      <div class="score-card">
+        <h3 id="nameO">Player O</h3>
+        <span id="scoreO">0</span>
+        <p class="role">Player O Wins</p>
+      </div>
+    </div>
+    <div class="card control-card">
+      <button id="newRound">New Round</button>
+      <button id="resetTournament">Reset Tournament</button>
+      <button id="showHistory">Last Winners</button>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay hidden" id="winnerPopup">
+  <div class="modal-card">
+    <h2>Champion!</h2>
+    <p id="winnerMessage">The tournament is over.</p>
+    <button id="closeWinner">Continue</button>
+  </div>
+</div>
+<div class="modal-overlay hidden" id="historyPopup">
+  <div class="modal-card history-card">
+    <h2>Last 5 Winners</h2>
+    <ol id="winnerList"></ol>
+    <button id="closeHistory">Close</button>
+  </div>
+</div>
+<audio id="clickSound" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"></audio>
+<audio id="winSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
+<audio id="drawSound" src="https://actions.google.com/sounds/v1/cartoon/slide_whistle.ogg"></audio>
+<script src="script.js"></script>
+</body>
+</html>
